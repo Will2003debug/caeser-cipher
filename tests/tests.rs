@@ -1,4 +1,4 @@
-use caesercipher::{decrypt::{self, decrypt_string},encrypt::{self, encrypt_string}};
+use caesercipher::{decrypt::decrypt_string,encrypt::encrypt_string};
 
 #[test]
 
