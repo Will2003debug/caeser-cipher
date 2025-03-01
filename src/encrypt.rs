@@ -21,14 +21,5 @@ pub fn encrypt_string(string:String,key:i8) -> String {
         }
       
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     finalvalue
 } 
