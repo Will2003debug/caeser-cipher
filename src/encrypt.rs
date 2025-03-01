@@ -1,4 +1,6 @@
-
+/// this function encrypts a string with caesercipher
+/// # returns
+/// This function return a String
 pub fn encrypt_string(string:String,key:i8) -> String {
     let mut finalvalue = String::new();
     for i in string.chars() {

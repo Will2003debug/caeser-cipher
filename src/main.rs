@@ -1,9 +1,9 @@
-use caesercipher::{
-    decrypt::decrypt_string,
-    encrypt:: encrypt_string,
+use caesercipher::{decrypt::decrypt_string, encrypt::encrypt_string};
+use std::{
+    error::Error,
+    io::{self, ErrorKind},
 };
-use std::io ;
-fn main() -> Result<(), std::io::ErrorKind> {
+fn main() -> Result<(), Box<dyn Error>> {
     let mut encrypt_or_decrypt = String::new();
     println!("would you like to encrypt or decrypt");
     io::stdin().read_line(&mut encrypt_or_decrypt).unwrap();
@@ -15,11 +15,16 @@ fn main() -> Result<(), std::io::ErrorKind> {
     io::stdin().read_line(&mut string).unwrap();
     println!("please enter the key you would like to encrypt with ");
     io::stdin().read_line(&mut key).unwrap();
-    let key = key.trim().parse::<i8>().unwrap();
+    let key = key.trim().parse::<i8>()?;
     let altered = match encrypt_or_decrypt.trim() as &str {
         "encrypt" => encrypt_string(string, key),
         "decrypt" => decrypt_string(string, key),
-        _ => return  Err(io::ErrorKind::InvalidInput),
+        _ => {
+            return Err(Box::new(io::Error::new(
+                ErrorKind::InvalidInput,
+                "only encrypt or dycrypt are accepted inputs",
+            )));
+        }
     };
     println!("{altered}");
     Ok(())
