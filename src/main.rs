@@ -1,15 +1,26 @@
-use caesercipher::deen;
-use std::io;
-fn main() {
-    let mut  key = String::new();
-    let mut  string = String::new();
+use caesercipher::{
+    decrypt::decrypt_string,
+    encrypt:: encrypt_string,
+};
+use std::io ;
+fn main() -> Result<(), std::io::ErrorKind> {
+    let mut encrypt_or_decrypt = String::new();
+    println!("would you like to encrypt or decrypt");
+    io::stdin().read_line(&mut encrypt_or_decrypt).unwrap();
+    let encrypt_or_decrypt = encrypt_or_decrypt.to_ascii_lowercase();
+
+    let mut key = String::new();
+    let mut string = String::new();
     println!("enter the sentence you would like to encrypt");
     io::stdin().read_line(&mut string).unwrap();
     println!("please enter the key you would like to encrypt with ");
     io::stdin().read_line(&mut key).unwrap();
-    let key = key.parse::<i8>().unwrap();
-    let altered = deen::encrypt(string,key );
+    let key = key.trim().parse::<i8>().unwrap();
+    let altered = match encrypt_or_decrypt.trim() as &str {
+        "encrypt" => encrypt_string(string, key),
+        "decrypt" => decrypt_string(string, key),
+        _ => return  Err(io::ErrorKind::InvalidInput),
+    };
     println!("{altered}");
-    
+    Ok(())
 }
-
