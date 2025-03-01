@@ -22,7 +22,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         _ => {
             return Err(Box::new(io::Error::new(
                 ErrorKind::InvalidInput,
-                "only encrypt or dycrypt are accepted inputs",
+                "only encrypt or decrypt are accepted inputs",
             )));
         }
     };
