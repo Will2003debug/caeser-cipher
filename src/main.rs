@@ -17,8 +17,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     io::stdin().read_line(&mut key)?;
     let key = key.trim().parse::<i8>()?;
     let altered = match encrypt_or_decrypt.trim() as &str {
-        "encrypt" => encrypt_string(string, key),
-        "decrypt" => decrypt_string(string, key),
+        "encrypt" => encrypt_string(&string, key),
+        "decrypt" => decrypt_string(&string, key),
         _ => {
             return Err(Box::new(io::Error::new(
                 ErrorKind::InvalidInput,

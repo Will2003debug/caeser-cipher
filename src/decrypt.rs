@@ -1,7 +1,7 @@
 /// encrypts string with caesercipher
 /// # returns
 /// this function return a string
-pub fn decrypt_string(string: String, key: i8) -> String {
+pub fn decrypt_string(string: &str, key: i8) -> String {
     let mut finalvalue = String::new();
     for i in string.chars() {
         if !i.is_ascii_alphabetic() {
