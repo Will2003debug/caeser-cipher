@@ -1,4 +1,6 @@
 /// encrypts string with caesercipher
+/// # args 
+/// takes string slice to the string you would like to decrypt
 /// # returns
 /// this function return a string
 pub fn decrypt_string(string: &str, key: i8) -> String {

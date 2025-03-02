@@ -1,4 +1,6 @@
 /// this function encrypts a string with caesercipher
+/// # args 
+/// takes string slice to the string you would like to encrypt
 /// # returns
 /// This function return a String
 pub fn encrypt_string(string: &str, key: i8) -> String {
