@@ -1,4 +1,4 @@
-use caesercipher::{decrypt::Decrypt, encrypt::encrypt_string};
+use caesercipher::{decrypt::Decrypt, encrypt::Encrypt};
 use std::{
     error::Error,
     io::{self, ErrorKind},
@@ -19,7 +19,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     io::stdin().read_line(&mut key)?;
     let key = key.trim().parse::<i8>()?;
     let altered = match encrypt_or_decrypt.trim() as &str {
-        "encrypt" => encrypt_string(&string, key),
+        "encrypt" => string.encrypt_string(key),
         "decrypt" => string.decrypt_string(key),
         _ => {
             return Err(Box::new(io::Error::new(
