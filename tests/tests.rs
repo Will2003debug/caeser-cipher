@@ -1,4 +1,4 @@
-use caesercipher::{decrypt::decrypt_string, encrypt::encrypt_string};
+use caesercipher::{decrypt::Decrypt, encrypt::encrypt_string};
 
 #[test]
 
@@ -9,6 +9,6 @@ fn encryptest1() {
 #[test]
 
 fn decrypttest1() {
-    let result = decrypt_string("ifmmp", 1);
+    let result = "ifmmp".to_string().decrypt_string(1);
     assert_eq!(result, "hello");
 }
