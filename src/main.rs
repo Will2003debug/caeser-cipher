@@ -18,6 +18,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     println!("please enter the key you would like to encrypt with ");
     io::stdin().read_line(&mut key)?;
     let key = key.trim().parse::<i8>()?;
+    let key = key & 26;
     let altered = match encrypt_or_decrypt.trim() as &str {
         "encrypt" => string.encrypt_string(key),
         "decrypt" => string.decrypt_string(key),

@@ -21,11 +21,11 @@ impl Decrypt for String {
                 finalvalue.push(i);
             } else if i.is_ascii_lowercase() {
                 let i = i as i8;
-                let i = ((i - 97 - &key) % 26 + 97) as u8 as char;
+                let i = ((i - 97 - key + 26) % 26 + 97) as u8 as char;
                 finalvalue.push(i);
             } else {
                 let i = i as i8;
-                let i = ((i - 65 - &key) % 26 + 65) as u8 as char;
+                let i = ((i - 65 - key + 26) % 26 + 65) as u8 as char;
                 finalvalue.push(i);
             }
         }
