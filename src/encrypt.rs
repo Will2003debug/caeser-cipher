@@ -2,12 +2,22 @@ pub trait Encrypt {
     fn encrypt_string(&mut self, key: i8) -> String;
 }
 
-/// this function encrypts a string with caesercipher
-/// # args 
-/// takes string slice to the string you would like to encrypt
-/// # returns
-/// This function return a String
 impl Encrypt for String {
+        
+    /// this function encrypts a string with caesercipher
+    /// # args 
+    /// takes string slice to the string you would like to encrypt
+    /// # returns
+    /// This function return a String
+    /// # example
+    /// ```
+    /// use caesercipher::encrypt::Encrypt;
+    /// let mut toencrypt = String::from("cats are the best");
+    /// let result = toencrypt.encrypt_string(1);
+    /// assert_eq!(result,"dbut bsf uif cftu");
+    ///  ```  
+    
+    
     fn encrypt_string(&mut self, key: i8) -> String {
         let mut finalvalue = String::new();
         for i in self.chars() {
