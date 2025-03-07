@@ -9,9 +9,10 @@ impl Decrypt for String {
     /// # returns
     /// this function return a string
     /// # example
-    ///  ```
+    /// ```
+    /// use caesercipher::decrypt::Decrypt;
     /// let result = "a".to_string().decrypt_string(1);
-    /// assert_eq!(result,"z");
+    /// assert_eq!(result, "z");
     /// ```
     fn decrypt_string(&mut self, key: i8) -> String {
         let mut finalvalue = String::new();
