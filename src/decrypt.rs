@@ -3,7 +3,6 @@ pub trait Decrypt {
 }
 
 impl Decrypt for String {
-    
     /// encrypts string with caesercipher
     /// # args
     /// takes string slice to the string you would like to decrypt
@@ -13,7 +12,7 @@ impl Decrypt for String {
     ///  ```
     /// let result = "a".to_string().encrypt_string(1);
     /// assert_eq!(result,"z");
-    /// ``` 
+    /// ```
     fn decrypt_string(&mut self, key: i8) -> String {
         let mut finalvalue = String::new();
         for i in self.chars() {

@@ -3,7 +3,6 @@ pub trait Encrypt {
 }
 
 impl Encrypt for String {
-        
     /// this function encrypts a string with caesercipher
     /// # args 
     /// takes string slice to the string you would like to encrypt
@@ -16,11 +15,9 @@ impl Encrypt for String {
     /// let result = toencrypt.encrypt_string(1);
     /// assert_eq!(result,"dbut bsf uif cftu");
     ///  ```  
-    
-    
     fn encrypt_string(&mut self, key: i8) -> String {
         let mut finalvalue = String::new();
-        for i in self.chars() {
+        self.chars().for_each(|i| {
             if !i.is_ascii_alphabetic() {
                 finalvalue.push(i);
             } else if i.is_ascii_lowercase() {
@@ -32,7 +29,7 @@ impl Encrypt for String {
                 let i = ((i - 65 + key) % 26 + 65) as u8 as char;
                 finalvalue.push(i);
             }
-        }
+        });
         finalvalue
     }
 }
