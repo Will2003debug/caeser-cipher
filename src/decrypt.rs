@@ -16,7 +16,7 @@ impl Decrypt for String {
     /// ```
     fn decrypt_string(&mut self, key: i8) -> String {
         let mut finalvalue = String::new();
-        for i in self.chars() {
+        self.chars().for_each(|i| {
             if !i.is_ascii_alphabetic() {
                 finalvalue.push(i);
             } else if i.is_ascii_lowercase() {
@@ -28,7 +28,7 @@ impl Decrypt for String {
                 let i = ((i - 65 - key + 26) % 26 + 65) as u8 as char;
                 finalvalue.push(i);
             }
-        }
+        });
         finalvalue
     }
 }

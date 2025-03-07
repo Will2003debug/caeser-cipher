@@ -4,7 +4,7 @@ pub trait Encrypt {
 
 impl Encrypt for String {
     /// this function encrypts a string with caesercipher
-    /// # args 
+    /// # args
     /// takes string slice to the string you would like to encrypt
     /// # returns
     /// This function return a String
@@ -33,4 +33,3 @@ impl Encrypt for String {
         finalvalue
     }
 }
-
