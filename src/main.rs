@@ -3,13 +3,13 @@ use std::{
     error::Error,
     io::{self, ErrorKind},
 };
+
+#[allow(clippy::perf)]
 fn main() -> Result<(), Box<dyn Error>> {
     let mut encrypt_or_decrypt = String::new();
     println!("would you like to encrypt or decrypt");
-    io::stdin()
-        .read_line(&mut encrypt_or_decrypt)?;
-    let encrypt_or_decrypt = encrypt_or_decrypt
-        .to_ascii_lowercase();
+    io::stdin().read_line(&mut encrypt_or_decrypt)?;
+    let encrypt_or_decrypt = encrypt_or_decrypt.to_ascii_lowercase();
 
     let mut key = String::new();
     let mut string = String::new();

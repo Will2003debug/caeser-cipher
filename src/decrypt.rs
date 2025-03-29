@@ -14,6 +14,7 @@ impl Decrypt for String {
     /// let result = "a".to_string().decrypt_string(1);
     /// assert_eq!(result, "z");
     /// ```
+    #[allow(clippy::perf)]
     fn decrypt_string(&mut self, key: i8) -> String {
         let mut finalvalue = String::new();
         self.chars().for_each(|i| {
