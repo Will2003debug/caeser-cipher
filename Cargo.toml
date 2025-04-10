@@ -7,6 +7,6 @@ readme = "README.md"
 repository = "https://github.com/Will2003debug/caeser-cipher"
 license = "MIT"
 keywords = ["cryptography", "caesercipher"]
-categories = ["Cryptography"]
+categories = ["cryptography"]
 
 [dependencies]
