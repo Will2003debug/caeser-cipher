@@ -16,7 +16,7 @@ impl Encrypt for String {
     /// assert_eq!(result,"dbut bsf uif cftu");
     ///  ```  
     fn encrypt_string(&mut self, key: i8) -> String {
-        let mut finalvalue = String::new();
+        let mut finalvalue = String::with_capacity(self.len());
         self.chars().for_each(|i| {
             if !i.is_ascii_alphabetic() {
                 finalvalue.push(i);
