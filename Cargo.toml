@@ -2,5 +2,11 @@
 name = "caesercipher"
 version = "1.0.0"
 edition = "2024"
+description = "Simple caeser cipher implemented in rust"
+readme = "README.md"
+repository = "https://github.com/Will2003debug/caeser-cipher"
+license = "MIT"
+keywords = ["cryptography", "caesercipher"]
+categories = ["Cryptography"]
 
 [dependencies]
