@@ -19,3 +19,8 @@ fn emptytest() {
     let result = "".to_string().encrypt_string(1);
     assert_eq!(result, "");
 }
+#[test]
+fn symboltest() {
+    let result = "/".to_string().encrypt_string(1);
+    assert_eq!(result, "/".to_string());
+}
